@@ -65,9 +65,10 @@ Başarılı: 5420 cihaz sayım için hazır.
 ```
 
 ## Grafiksel Analiz
-`find_none_devices.py` betiği çalıştırıldığında, CUCM üzerindeki cihazların model bazlı dağılımını gösteren aşağıdaki grafik otomatik olarak oluşturulur:
+`none_devices_with_model.py` betiği çalıştırıldığında, CUCM üzerindeki cihazların model bazlı dağılımını gösteren aşağıdaki grafik otomatik olarak oluşturulur:
 
 ![CUCM None Durumundaki Cihazların Model Dağılımı](Grafik.png)
+
 
 
 
