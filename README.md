@@ -22,7 +22,7 @@ Bu proje, **Cisco Unified Communications Manager (CUCM)** altyapısında bulunan
 * **Python 3.8+**
 
 
-## Bağımlılıkları yükleme
+## Bağımlılıkları Yükleme
 ```bash
 pip install -r requirements.txt
 ```
@@ -66,6 +66,7 @@ Başarılı: 5420 cihaz sayım için hazır.
 `find_none_devices.py` betiği çalıştırıldığında, CUCM üzerindeki cihazların model bazlı dağılımını gösteren aşağıdaki grafik otomatik olarak oluşturulur:
 
 ![CUCM None Durumundaki Cihazların Model Dağılımı](Grafik.png)
+
 
 
 
