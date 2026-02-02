@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Cisco](https://img.shields.io/badge/Cisco-CUCM%20AXL%20%26%20RISPort-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+
 
 Bu proje, **Cisco Unified Communications Manager (CUCM)** altyapısında bulunan cihazların (IP Telefonlar, Softphone'lar vb.) canlı durumlarını denetlemek için geliştirilmiştir. Sistemdeki "None" cihazları tespit eder, model bazlı grafiksel analiz sunar ve operasyonel ekipler için Excel raporları oluşturur.
 
@@ -22,6 +22,10 @@ Bu proje, **Cisco Unified Communications Manager (CUCM)** altyapısında bulunan
 * **Python 3.8+**
 
 
+# Bağımlılıkları yükleme
+pip install -r requirements.txt
+
+
 ## Proje İçeriği
 
 Proje, iki ana Python betiğinden oluşmaktadır. Her iki betik de Cisco AXL (SOAP) ve RISPort (Real-time Information Service) API'lerini harmanlayarak çalışır.
@@ -35,14 +39,30 @@ Proje, iki ana Python betiğinden oluşmaktadır. Her iki betik de Cisco AXL (SO
 
 Proje çıktısının belirli bir kısmı aşağıdaki örnekteki gibidir:
 
+```text
 AXL: Veritabanından cihaz ve model bilgileri çekiliyor...
-Başarılı: 15420 cihaz sayım için hazır.
+Başarılı: 5420 cihaz sayım için hazır.
 
-#     | Cihaz Adı                 | Model                     | Durum
+#     | Cihaz Adı                 | Model                     | Durum     
 ---------------------------------------------------------------------------
-1     | SEP001122334455           | Cisco 7841                | None
-2     | SEPAABBCCDD0011           | Cisco 8851                | None
-3     | ATA1122CD508947           | Cisco ATA 190             | None
+1     | SEP7A11C87D07C4           | Cisco 7841                | None
+2     | SEPEAF55C447BAB           | Cisco 840                 | None
+3     | SEP8D9C22D03F88           | Cisco 7841                | None
+4     | SEP01188F574785           | Cisco 7911                | None
+5     | TCTUSER                   | Cisco Dual Mode for iPhone | None
+6     | SEPUSER                   | Cisco IP Communicator     | None
+7     | SEP2C7BA3C22C8F           | Cisco 8851                | None
+8     | SEP00521A78DCAF           | Cisco 8851                | None
+9     | SEP00478D87A1F5           | Cisco 8851                | None
+10    | SEP36ACC9D4F2F4           | Cisco 9971                | None
+11    | SEP07006CE9D047           | Cisco 9971                | None
+12    | BOTUSER                   | Cisco Dual Mode for Android | None
+---------------------------------------------------------------------------
+```
 
+### Grafiksel Analiz
+`find_none_devices.py` betiği çalıştırıldığında, CUCM üzerindeki cihazların model bazlı dağılımını gösteren aşağıdaki grafik otomatik olarak oluşturulur:
+
+![CUCM None Durumundaki Cihazların Model Dağılımı](Grafik.png)
 
 
