@@ -30,7 +30,9 @@ pip install -r requirements.txt
 
 ## Proje İçeriği
 
-Proje, iki ana Python betiğinden oluşmaktadır. Her iki betik de Cisco AXL (SOAP) ve RISPort (Real-time Information Service) API'lerini harmanlayarak çalışır. Sistemde binlerce cihaz bulunması durumunda, gerçek zamanlı RISPort sorguları ve uygulanan Rate Limit koruması nedeniyle işlemin tamamlanması zaman alabilir. Script, CUCM servislerinin sağlığını korumak adına verileri paketler halinde işlemektedir.
+Proje, iki ana Python betiğinden oluşmaktadır. Her iki betik de Cisco AXL (SOAP) ve RISPort (Real-time Information Service) API'lerini harmanlayarak çalışır. 
+
+Sistemde binlerce cihaz bulunması durumunda, gerçek zamanlı RISPort sorguları ve uygulanan Rate Limit koruması nedeniyle işlemin tamamlanması zaman alabilir. Script, CUCM servislerinin sağlığını korumak adına verileri paketler halinde işlemektedir.
 
 * **1. none_devices_with_model.py:** Bu script, sistemdeki verimliliği ölçmek ve donanım envanterini temizlemek için tasarlanmıştır. `ciscoaxl` kütüphanesi kullanılarak CUCM veritabanından tüm cihaz isimleri ve model bilgileri çekilir. Toplanan cihaz isimleri, 100'erli paketler halinde RISPort servisine gönderilir. RISPort yanıtında aktif bir IP veya Status bilgisi dönmeyen (yani sistemde kayıtlı olmayan) cihazlar filtrelenir. `matplotlib` kullanılarak, kayıtsız cihazların model bazlı dağılımı (örn: Cisco 7841, Cisco 8845) bir sütun grafiği ile raporlanır. Bu, hangi model cihazların daha çok sorun çıkardığını veya boşa çıktığını anlamanızı sağlar.
 
@@ -66,6 +68,7 @@ Başarılı: 5420 cihaz sayım için hazır.
 `find_none_devices.py` betiği çalıştırıldığında, CUCM üzerindeki cihazların model bazlı dağılımını gösteren aşağıdaki grafik otomatik olarak oluşturulur:
 
 ![CUCM None Durumundaki Cihazların Model Dağılımı](Grafik.png)
+
 
 
 
