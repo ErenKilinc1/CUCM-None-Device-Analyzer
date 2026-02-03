@@ -72,7 +72,8 @@ Başarılı: 5420 cihaz sayım için hazır.
 ## Ek Kaynaklar
 
 Python kullanarak Cisco CUCM servislerine erişim ve entegrasyon süreçleri hakkında daha fazla bilgi edinmek için hazırladığım Medium makalesine göz atabilirsiniz:
-* [Python ile CUCM Entegrasyonu ve Raporlama](https://medium.com/@vverenvv3/python-ve-axl-api-ile-cisco-cucm-otomasyonu-10c2ea0ccf80?postPublishedType=initial)
+* [Python ile CUCM Entegrasyonu](https://medium.com/@vverenvv3/python-ve-axl-api-ile-cisco-cucm-otomasyonu-10c2ea0ccf80?postPublishedType=initial)
+
 
 
 
