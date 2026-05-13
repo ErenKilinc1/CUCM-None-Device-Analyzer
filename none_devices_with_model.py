@@ -18,13 +18,13 @@ USERNAME = os.getenv('CUCM_USERNAME')
 PASSWORD = os.getenv('CUCM_PASSWORD')
 
 if not all([CUCM_IP, USERNAME, PASSWORD]):
-    raise ValueError("Hata: .env dosyasında CUCM_IP, USERNAME veya PASSWORD eksik!")
+    raise ValueError("Error: CUCM_IP, USERNAME or PASSWORD missing in .env file!")
 
 def find_none_devices():
     try:
-        # AXL: Bilgi Toplama
+        # AXL: Data Gathering
         ucm = axl(username=USERNAME, password=PASSWORD, cucm=CUCM_IP, cucm_version='12.5')
-        print(f"AXL: Veritabanından cihaz ve model bilgileri çekiliyor...")
+        print(f"AXL: Fetching device and model information from database...")
 
         raw_phones = ucm.get_phones()
         device_info_map = {}
@@ -36,9 +36,9 @@ def find_none_devices():
 
         device_names = list(device_info_map.keys())
         total_count = len(device_names)
-        print(f"Başarılı: {total_count} cihaz sayım için hazır.\n")
+        print(f"Success: {total_count} devices ready for analysis.\n")
 
-        # RISPort: Canlı Durum Analizi
+        # RISPort: Live Status Analysis
         ris_wsdl = f"https://{CUCM_IP}:8443/realtimeservice2/services/RISService70?wsdl"
         ris_endpoint = f"https://{CUCM_IP}:8443/realtimeservice2/services/RISService70"
 
@@ -50,9 +50,9 @@ def find_none_devices():
         ris_service = ris_client.create_service('{http://schemas.cisco.com/ast/soap}RisBinding', ris_endpoint)
 
         chunk_size = 100
-        none_models_list = []  # Grafik için modellerin olduğu liste
+        none_models_list = []  # List of models for the chart
 
-        print(f"{'#':<5} | {'Cihaz Adı':<25} | {'Model':<25} | {'Durum':<10}")
+        print(f"{'#':<5} | {'Device Name':<25} | {'Model':<25} | {'Status':<10}")
         print("-" * 75)
 
         for i in range(0, total_count, chunk_size):
@@ -94,9 +94,9 @@ def find_none_devices():
                 if "rate" in str(e).lower():
                     time.sleep(15)
                 else:
-                    print(f"\nHata: {e}")
+                    print(f"\nError: {e}")
 
-        # GRAFİK OLUŞTURMA
+        # CHART GENERATION
         print("-" * 75)
 
         if none_models_list:
@@ -108,9 +108,9 @@ def find_none_devices():
             plt.figure(figsize=(12, 7))
             bars = plt.bar(models, counts, color='skyblue', edgecolor='navy')
 
-            plt.xlabel('Cihaz Modelleri', fontsize=12)
-            plt.ylabel('None Durumundaki Cihaz Sayısı', fontsize=12)
-            plt.title('CUCM "None" Durumundaki Cihazların Model Dağılımı', fontsize=14)
+            plt.xlabel('Device Models', fontsize=12)
+            plt.ylabel('Number of Devices in None State', fontsize=12)
+            plt.title('Model Distribution of CUCM "None" Status Devices', fontsize=14)
             plt.xticks(rotation=45, ha='right')
 
             for bar in bars:
@@ -118,13 +118,13 @@ def find_none_devices():
                 plt.text(bar.get_x() + bar.get_width() / 2, yval + 0.5, yval, ha='center', va='bottom')
 
             plt.tight_layout()
-            print("Grafik açılıyor...")
+            print("Opening chart...")
             plt.show()
         else:
-            print("Hiç 'None' cihaz bulunamadığı için grafik üretilemedi.")
+            print("No 'None' devices found, chart could not be generated.")
 
     except Exception as e:
-        print(f"Genel Hata: {e}")
+        print(f"General Error: {e}")
 
 if __name__ == "__main__":
     find_none_devices()
