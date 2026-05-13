@@ -1,7 +1,5 @@
 # CUCM None Device Analyzer
 
-# CUCM None-Device Analyzer
-
 This project provides an automated solution for Cisco Unified Communications Manager (CUCM) administrators to identify and visualize devices with a "None" (unassigned) registration status. By combining AXL for inventory and RISPort70 for real-time status, it helps optimize licensing and database hygiene.
 
 
