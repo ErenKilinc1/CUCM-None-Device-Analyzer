@@ -1,10 +1,7 @@
-Bu dosya, projenin çalışması için gereken kütüphaneleri içerir.
-
-```text
 ciscoaxl
 zeep
-requests
-urllib3
 pandas
 matplotlib
-openpyxl
+requests
+urllib3
+python-dotenv
