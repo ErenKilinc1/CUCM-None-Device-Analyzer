@@ -6,12 +6,18 @@ from zeep.transports import Transport
 from requests import Session
 from requests.auth import HTTPBasicAuth
 import urllib3
+import os
+from dotenv import load_dotenv
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+load_dotenv()
 
-CUCM_IP = 'ip_addr'
-USERNAME = 'user.name'
-PASSWORD = 'your_password'
+CUCM_IP = os.getenv('CUCM_IP')
+USERNAME = os.getenv('CUCM_USERNAME')
+PASSWORD = os.getenv('CUCM_PASSWORD')
+
+if not all([CUCM_IP, USERNAME, PASSWORD]):
+    raise ValueError("Hata: .env dosyasında CUCM_IP, USERNAME veya PASSWORD eksik!")
 
 def none_devices_to_excel():
     try:
