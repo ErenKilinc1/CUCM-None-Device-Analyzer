@@ -43,7 +43,7 @@ def find_none_devices():
         ris_endpoint = f"https://{CUCM_IP}:8443/realtimeservice2/services/RISService70"
 
         session = Session()
-        session.verify = False
+        session.verify = True
         session.auth = HTTPBasicAuth(USERNAME, PASSWORD)
         ris_transport = Transport(session=session, timeout=30)
         ris_client = Client(ris_wsdl, transport=ris_transport)
