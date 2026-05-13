@@ -2,6 +2,9 @@
 
 ## CUCM None Status Device Analyzer — Identify and Visualize Unregistered Phones in Cisco Unified Communications Manager
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Cisco](https://img.shields.io/badge/Cisco-CUCM%20AXL%20%26%20RISPort-orange)
+
 This tool helps Unified Communications administrators identify phones and endpoints in Cisco Unified Communications Manager (CUCM) that report a **"None"** registration status — devices that appear in the database but are not actively registered to any node. By combining **AXL (Administrative XML Layer)** for database queries with **RISPort70** for real-time device status, this script provides a clear table of unregistered devices along with a **bar chart visualization** showing their distribution by model.
 
 In large enterprise CUCM deployments, "None" status devices can indicate decommissioned hardware, migration leftovers, misconfigurations, or license overhead. This tool makes it easy to surface and quantify those devices without manual cross-referencing.
