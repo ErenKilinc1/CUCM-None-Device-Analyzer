@@ -4,8 +4,7 @@
 [![Cisco](https://img.shields.io/badge/Cisco-CUCM%20AXL%20%26%20RISPort-orange)](https://developer.cisco.com/docs/axl/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![OpenSSF Baseline](https://www.bestpractices.dev/projects/12834/baseline)](https://www.bestpractices.dev/projects/12834)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ErenKilinc1/CUCM-None-Device-Analyzer/badge)](https://securityscorecards.dev/viewer/?uri=github.com/ErenKilinc1/CUCM-None-Device-Analyzer)
-[![CI](https://github.com/ErenKilinc1/CUCM-None-Device-Analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/ErenKilinc1/CUCM-None-Device-Analyzer/actions/workflows/ci.yml)
+
 
 An automation tool for Cisco Unified Communications Manager (CUCM) administrators to identify, visualize, and report devices with a **"None"** (unregistered) status. By combining the AXL API for inventory and RISPort70 for real-time status queries, this tool helps optimize licensing and maintain a clean CUCM database.
 
